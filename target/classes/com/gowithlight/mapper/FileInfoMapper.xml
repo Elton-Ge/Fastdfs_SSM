@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gowithlight.mapper.FileInfoMapper">
+    <insert id="insertFileInfo">
+        insert into t_files(id, file_name, group_name, remote_file_name, file_path)
+        values(default, #{fileName}, #{groupName}, #{remoteFileName}, #{filePath})
+    </insert>
+    <select id="selectAll" resultType="com.gowithlight.entity.FileInfo">
+        select id, file_name as fileName, group_name as groupName, remote_file_name as remoteFileName,
+            file_path as filePath
+        from t_files
+    </select>
+    <select id="selectById" resultType="com.gowithlight.entity.FileInfo">
+        select id, file_name as fileName, group_name as groupName, remote_file_name as remoteFileName,
+            file_path as filePath
+        from t_files
+        where id = #{id}
+    </select>
+</mapper>                          

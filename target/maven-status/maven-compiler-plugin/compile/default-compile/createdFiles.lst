@@ -1,0 +1,6 @@
+com/gowithlight/service/FileService.class
+com/gowithlight/controller/UploadController.class
+com/gowithlight/entity/FileInfo.class
+com/gowithlight/service/impl/FileServiceImpl.class
+com/gowithlight/mapper/FileInfoMapper.class
+com/gowithlight/fdfs/FastDFSCommonUtils.class
