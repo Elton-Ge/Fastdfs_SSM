@@ -2,6 +2,7 @@ package com.gowithlight.controller;
 
 import com.gowithlight.entity.FileInfo;
 import com.gowithlight.service.FileService;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,12 +59,13 @@ public class UploadController {
             response.setHeader("content-disposition", "attachment;filename=" + fileInfo.getFileName());
             //通过输出流输出文件到客户端
             OutputStream outputStream = response.getOutputStream();
-            byte[] temp = new byte[512];
+           /* byte[] temp = new byte[512];
             int len = 0;
             while ((len = (inputStream.read(temp))) != -1) {
                 outputStream.write(temp, 0, len);
             }
-            outputStream.flush();
+            outputStream.flush();*/
+            IOUtils.copy(inputStream,outputStream);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
